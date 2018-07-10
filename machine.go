@@ -518,7 +518,7 @@ func (m *Machine) startup(command string, extracontent [][2]string) (int, error)
 	memory := fmt.Sprintf("%d", m.memory)
 	numcpus := fmt.Sprintf("%d", m.numcpus)
 	qemuargs := []string{"qemu-system-x86_64",
-		"-cpu", "host",
+		"-cpu", "host,pmu=off",
 		"-smp", numcpus,
 		"-m", memory,
 		"-enable-kvm",
